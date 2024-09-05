@@ -1,24 +1,207 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Kp-6Rr" userLabel="ParentStackBoard">
+                                <rect key="frame" x="50" y="209" width="293" height="459"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zu2-hc-Iq7" userLabel="HorizontalStack">
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="459"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="66e-9b-XNc" userLabel="VerticalStack">
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="459"/>
+                                                <subviews>
+                                                    <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-MS-KJX">
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="146.33333333333334"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="XAB-ZU-w07" appends="YES" id="0xQ-XD-THg"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGi-Q8-Wg3">
+                                                        <rect key="frame" x="0.0" y="156.33333333333331" width="91" height="146.33333333333331"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="bj4-Dq-hud" appends="YES" id="S5e-1n-6cx"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GW1-Nt-8zO">
+                                                        <rect key="frame" x="0.0" y="312.66666666666663" width="91" height="146.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Cld-5J-XLf" appends="YES" id="uMU-JA-qRJ"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8jj-wh-LkM" userLabel="VerticalStack">
+                                                <rect key="frame" x="101" y="0.0" width="91" height="459"/>
+                                                <subviews>
+                                                    <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8K2-b4-Nd2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="146.33333333333334"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="AXQ-P7-Ykq" appends="YES" id="Jao-Ox-hrH"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9N-uV-wa1">
+                                                        <rect key="frame" x="0.0" y="156.33333333333331" width="91" height="146.33333333333331"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="sWq-P6-HE2" appends="YES" id="iah-XX-xd2"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-rh-oVx">
+                                                        <rect key="frame" x="0.0" y="312.66666666666663" width="91" height="146.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="gsh-JA-3Et" appends="YES" id="G2G-QD-HfJ"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFl-iT-5VF" userLabel="VerticalStack">
+                                                <rect key="frame" x="202" y="0.0" width="91" height="459"/>
+                                                <subviews>
+                                                    <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-Nk-7WW">
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="146.33333333333334"/>
+                                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="XWS-Dc-wKJ" appends="YES" id="NGq-bU-Hl5"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Z1-VL-3ya">
+                                                        <rect key="frame" x="0.0" y="156.33333333333331" width="91" height="146.33333333333331"/>
+                                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="nHv-pc-Obk" appends="YES" id="q9E-2u-jLu"/>
+                                                        </connections>
+                                                    </view>
+                                                    <view tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G64-AI-yse">
+                                                        <rect key="frame" x="0.0" y="312.66666666666663" width="91" height="146.33333333333337"/>
+                                                        <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                        <gestureRecognizers/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="V8N-xD-zWP" appends="YES" id="fc2-RG-s4t"/>
+                                                        </connections>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-yG-9IE">
+                                <rect key="frame" x="160" y="99" width="73" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFl-tp-cmd">
+                                <rect key="frame" x="158.66666666666666" y="754" width="75.666666666666657" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vfE-yG-9IE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="7Y2-NF-G5E"/>
+                            <constraint firstItem="zzn-Kp-6Rr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="EmG-8Z-lKK"/>
+                            <constraint firstItem="zFl-tp-cmd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Nr9-kF-9Mc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zzn-Kp-6Rr" secondAttribute="trailing" constant="50" id="QAH-2I-amG"/>
+                            <constraint firstItem="vfE-yG-9IE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ScW-eg-NtU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zzn-Kp-6Rr" secondAttribute="bottom" constant="150" id="ZHy-zw-8IF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zFl-tp-cmd" secondAttribute="bottom" constant="40" id="etV-mE-cOJ"/>
+                            <constraint firstItem="zzn-Kp-6Rr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="g83-MA-Gmn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XAB-ZU-w07">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="IUU-gc-OVH"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="AXQ-P7-Ykq">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="lZu-jr-Ft9"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="XWS-Dc-wKJ">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="twS-3w-mW2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="bj4-Dq-hud">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="8hu-Ut-9Ef"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="sWq-P6-HE2">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="J2f-mj-i8B"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nHv-pc-Obk">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="uw7-dw-Fxa"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Cld-5J-XLf">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="HGc-9q-YSq"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="gsh-JA-3Et">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="1Kq-3H-HKr"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="V8N-xD-zWP">
+                    <connections>
+                        <action selector="onTapGesture:" destination="BYZ-38-t0r" id="Jdd-Pk-68S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
