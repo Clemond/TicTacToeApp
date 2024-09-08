@@ -8,11 +8,19 @@
 import UIKit
 
 class GameViewController: UIViewController {
-        
-        let myGame = Game()
+    
+    
+    @IBOutlet weak var lblPlayerOne: UILabel!
+    @IBOutlet weak var lblPlayerTwo: UILabel!
+    
+    let myGame = Game()
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            lblPlayerOne.text = myGame.findPlayerById(id: 1)?.name
+            lblPlayerTwo.text = myGame.findPlayerById(id: 2)?.name
+            
             
             // Do any additional setup after loading the view.
         }

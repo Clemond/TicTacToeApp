@@ -203,6 +203,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ue3-JY-dDm"/>
+                    <connections>
+                        <outlet property="lblPlayerOne" destination="vfE-yG-9IE" id="kMk-HE-CjE"/>
+                        <outlet property="lblPlayerTwo" destination="zFl-tp-cmd" id="IFH-lI-0cF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="XAB-ZU-w07">
