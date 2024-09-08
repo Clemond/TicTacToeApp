@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3gq-oK-Kfx">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -8,25 +8,88 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Select Players View Controller-->
+        <scene sceneID="UyS-Ju-KRW">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TicTacToeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="3gq-oK-Kfx" customClass="SelectPlayersViewController" customModule="TicTacToeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ejP-ii-MOv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ciz-br-yhH">
+                                <rect key="frame" x="20" y="326" width="353" height="212.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter player 1: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5i-92-zgy">
+                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Yl-JN-bWm">
+                                        <rect key="frame" x="0.0" y="40.333333333333314" width="353" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Enter Player 2: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIY-Kj-EcT">
+                                        <rect key="frame" x="0.0" y="89" width="353" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDe-cv-2tk">
+                                        <rect key="frame" x="0.0" y="129.33333333333331" width="353" height="28.666666666666657"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ec5-rH-1lo">
+                                        <rect key="frame" x="0.0" y="178" width="353" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Start Game"/>
+                                        <connections>
+                                            <action selector="btnStartGame:" destination="3gq-oK-Kfx" eventType="touchUpInside" id="iH4-jy-m9X"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="segueToGameViewController" id="A5Q-eg-lG8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="l4D-Ex-r90"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ciz-br-yhH" firstAttribute="top" secondItem="l4D-Ex-r90" secondAttribute="top" constant="267" id="Ozv-WN-pPy"/>
+                            <constraint firstItem="Ciz-br-yhH" firstAttribute="leading" secondItem="l4D-Ex-r90" secondAttribute="leading" constant="20" id="c5G-zo-W3Q"/>
+                            <constraint firstItem="l4D-Ex-r90" firstAttribute="bottom" secondItem="Ciz-br-yhH" secondAttribute="bottom" constant="279.67000000000002" id="nvZ-Eb-Djl"/>
+                            <constraint firstItem="l4D-Ex-r90" firstAttribute="trailing" secondItem="Ciz-br-yhH" secondAttribute="trailing" constant="20" id="rso-2h-xU5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtPlayerOneInput" destination="9Yl-JN-bWm" id="YRI-eh-O6u"/>
+                        <outlet property="txtPlayerTwoInput" destination="eDe-cv-2tk" id="mgo-9D-J6v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8I6-DC-C4q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1001" y="-173"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="GameViewController" customModule="TicTacToeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzn-Kp-6Rr" userLabel="ParentStackBoard">
-                                <rect key="frame" x="50" y="209" width="293" height="459"/>
+                                <rect key="frame" x="50" y="150" width="293" height="542"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zu2-hc-Iq7" userLabel="HorizontalStack">
-                                        <rect key="frame" x="0.0" y="0.0" width="293" height="459"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="293" height="542"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="66e-9b-XNc" userLabel="VerticalStack">
-                                                <rect key="frame" x="0.0" y="0.0" width="91" height="459"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="91" height="542"/>
                                                 <subviews>
                                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AXd-MS-KJX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="146.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -34,7 +97,7 @@
                                                         </connections>
                                                     </view>
                                                     <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGi-Q8-Wg3">
-                                                        <rect key="frame" x="0.0" y="156.33333333333331" width="91" height="146.33333333333331"/>
+                                                        <rect key="frame" x="0.0" y="184" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -42,7 +105,7 @@
                                                         </connections>
                                                     </view>
                                                     <view tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GW1-Nt-8zO">
-                                                        <rect key="frame" x="0.0" y="312.66666666666663" width="91" height="146.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="368" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -52,10 +115,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8jj-wh-LkM" userLabel="VerticalStack">
-                                                <rect key="frame" x="101" y="0.0" width="91" height="459"/>
+                                                <rect key="frame" x="101" y="0.0" width="91" height="542"/>
                                                 <subviews>
                                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8K2-b4-Nd2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="146.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -63,7 +126,7 @@
                                                         </connections>
                                                     </view>
                                                     <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r9N-uV-wa1">
-                                                        <rect key="frame" x="0.0" y="156.33333333333331" width="91" height="146.33333333333331"/>
+                                                        <rect key="frame" x="0.0" y="184" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -71,7 +134,7 @@
                                                         </connections>
                                                     </view>
                                                     <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ved-rh-oVx">
-                                                        <rect key="frame" x="0.0" y="312.66666666666663" width="91" height="146.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="368" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -81,10 +144,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFl-iT-5VF" userLabel="VerticalStack">
-                                                <rect key="frame" x="202" y="0.0" width="91" height="459"/>
+                                                <rect key="frame" x="202" y="0.0" width="91" height="542"/>
                                                 <subviews>
                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TFg-Nk-7WW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="146.33333333333334"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -92,7 +155,7 @@
                                                         </connections>
                                                     </view>
                                                     <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Z1-VL-3ya">
-                                                        <rect key="frame" x="0.0" y="156.33333333333331" width="91" height="146.33333333333331"/>
+                                                        <rect key="frame" x="0.0" y="184" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -100,7 +163,7 @@
                                                         </connections>
                                                     </view>
                                                     <view tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G64-AI-yse">
-                                                        <rect key="frame" x="0.0" y="312.66666666666663" width="91" height="146.33333333333337"/>
+                                                        <rect key="frame" x="0.0" y="368" width="91" height="174"/>
                                                         <color key="backgroundColor" systemColor="systemCyanColor"/>
                                                         <gestureRecognizers/>
                                                         <connections>
@@ -114,26 +177,17 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfE-yG-9IE">
-                                <rect key="frame" x="160" y="99" width="73" height="24"/>
+                                <rect key="frame" x="160" y="40" width="73" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFl-tp-cmd">
-                                <rect key="frame" x="158.66666666666666" y="754" width="75.666666666666657" height="24"/>
+                                <rect key="frame" x="158.66666666666666" y="778" width="75.666666666666657" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Gc-Q5-Lai">
-                                <rect key="frame" x="98" y="143" width="199" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="AddScoreToPLayerOne"/>
-                                <connections>
-                                    <action selector="buttonAddPlayer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6OR-tg-3QK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -148,6 +202,7 @@
                             <constraint firstItem="zzn-Kp-6Rr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="g83-MA-Gmn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ue3-JY-dDm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="XAB-ZU-w07">
@@ -196,7 +251,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="45" y="-173"/>
         </scene>
     </scenes>
     <resources>
