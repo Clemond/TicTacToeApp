@@ -13,12 +13,3 @@ struct Player {
     var score: Int
     var id: Int
 }
-
-/* struct JournalEntry {
-    var id = UUID().uuidString
-    var title: String
-    var notes: String
-    var date: Date
-    var updatedAt: Data?
-}
- */

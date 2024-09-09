@@ -13,7 +13,7 @@ class Game {
     
     func addPlayer(userName: String){
         
-        //Ifall det redan är två spelare går det ej att lägga till en tredje,
+        //If there already are two players in the list, it wont be posible to add a third
         if currentPlayers.count < 2 {
             
             if currentPlayers.count == 0 {
@@ -30,43 +30,39 @@ class Game {
         }
     
     
-    // Hämta alla spelare
+    // get all current players
     func getCurrentPlayers() -> [Player]{
             return currentPlayers
     }
     
-    // Hämta spelare baserat på ID
+    // find player based on id
     func findPlayerById(id: Int) -> Player? {
         let maybeFoundPlayer = currentPlayers.first { $0.id == id}
         return maybeFoundPlayer
         
     }
     
-    // uppdatera användar poängen
+    // Update users score
     func updatePlayerScore(id: Int) {
     
-        // skapa en kopia av den användaren vars poäng ska gå upp och uppdatera poängen.
+        // Create a copy of the user whose score we want to update
         var currentPlayerWithIndex = currentPlayers[id]
         currentPlayerWithIndex.score += 1
-        // gör sedan så att kopians data blir den rätta användarens data i arrayen.
+        // Make the copys value the real users score in the list.
 
         currentPlayers[id] = currentPlayerWithIndex
     }
     
-    // Radera en currentPlayers
+    // Remove all players from list
     func deleteAllCurrentPlayers() {
         currentPlayers.removeAll()
     }
-    
+    // Get player score
     func getPlayerScore(id: Int) -> Int{
         return currentPlayers[id].score
     }
     
-    
-        
-    
-    
-    
+
         
     }
     

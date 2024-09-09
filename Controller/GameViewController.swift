@@ -13,7 +13,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var lblPlayerOne: UILabel!
     @IBOutlet weak var lblPlayerTwo: UILabel!
     
-    var isBoxTicked: Bool = false
     var playersTurn: Bool = true
     let myGame = Game()
         
