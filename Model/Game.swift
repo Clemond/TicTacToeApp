@@ -61,9 +61,14 @@ class Game {
     func getPlayerScore(id: Int) -> Int{
         return currentPlayers[id].score
     }
-    
-
+    // Get player name
+    func getPlayerName(id: Int) -> String{
         
+        guard let maybeFoundPlayer = findPlayerById(id: id)?.name else { return "No player found" }
+        return maybeFoundPlayer
+        
+    }
+    
     }
     
 
