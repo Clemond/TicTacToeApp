@@ -36,7 +36,7 @@ class GameViewController: UIViewController {
         lblPlayerOne.text = myGame.getPlayerName(id: 1)
         lblPlayerTwo.text = myGame.getPlayerName(id: 2)
         
-        checkPlayerTurn()
+        highlightCurrentPlayerLabel()
         
         // Do any additional setup after loading the view.
     }
@@ -50,8 +50,7 @@ class GameViewController: UIViewController {
             if view.isUserInteractionEnabled == true {
                 
                 if playersTurn  == true {
-                    if let currentPlayerName = myGame.findPlayerById(id: 1)?.name,
-                       let currentPlayerSymbol = myGame.findPlayerById(id: 1)?.symbol  {
+                    if let currentPlayerSymbol = myGame.findPlayerById(id: 1)?.symbol  {
                         
                         addLabelOnView(on: view, withText: currentPlayerSymbol)
                         
@@ -62,8 +61,7 @@ class GameViewController: UIViewController {
                         
                     }
                 }else  {
-                    if let currentPlayerName = myGame.findPlayerById(id: 2)?.name,
-                       let currentPlayerSymbol = myGame.findPlayerById(id: 2)?.symbol  {
+                    if let currentPlayerSymbol = myGame.findPlayerById(id: 2)?.symbol  {
                         
                         addLabelOnView(on: view, withText: currentPlayerSymbol)
                         
@@ -75,14 +73,14 @@ class GameViewController: UIViewController {
                     }
                 }
                 playersTurn.toggle()
-                checkPlayerTurn()
+                highlightCurrentPlayerLabel()
                 checkWinner()
             }
         }
         
     }
     
-    func checkPlayerTurn() {
+    func highlightCurrentPlayerLabel() {
         if playersTurn {
             lblPlayerOne.textColor = UIColor.blue
             lblPlayerTwo.textColor = UIColor.black
@@ -122,42 +120,50 @@ class GameViewController: UIViewController {
     }
     
     func checkWinner(){
+    
+            if checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 0)
+                return
+            }
+            else if checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 3)
+                return
+            }
+            else if checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 6)
+                return
+            }
+            else if checkleftDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkleftDiagonal.allSatisfy({ playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 0)
+                return
+            }
+            else if checkRightDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkRightDiagonal.allSatisfy({ playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 2)
+                return
+            }
+            else if checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 0)
+                return
+            }
+            else if checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 1)
+                return
+            }
+            else if checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 2}){
+                getWinner(playingBoardIndexToCheck: 2)
+                return
+            }
         
-        if checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
-                        getWinner(checkIndex: 0)
+        if !playingBoard.contains(0){
+            print("All boxes are checked, TIE!")
         }
-        else if checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
-            getWinner(checkIndex: 3)
-        }
-        else if checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
-            getWinner(checkIndex: 6)
-        }
-        else if checkleftDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkleftDiagonal.allSatisfy({ playingBoard[$0] == 2}){
-            getWinner(checkIndex: 0)
-        }
-        else if checkRightDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkRightDiagonal.allSatisfy({ playingBoard[$0] == 2}){
-            getWinner(checkIndex: 2)
-        }
-        else if checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 2}){
-            getWinner(checkIndex: 0)
-        }
-        else if checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 2}){
-            getWinner(checkIndex: 1)
-        }
-        else if checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 1}){
-            getWinner(checkIndex: 2)
-        }
-//        else if playingBoard.allSatisfy({playingBoard[$0] == 1 || playingBoard[$0] == 2}){
-//            print("All boxes are checked, TIE!")
-//        }
+        
     }
     
-    func getWinner(checkIndex: Int){
-        if playingBoard[checkIndex] == 1 {
-            print("\(myGame.getPlayerName(id: 1)) WON!")
+    func getWinner(playingBoardIndexToCheck: Int){
+        if playingBoard[playingBoardIndexToCheck] == 1 {
             showAlert(id: 1)
-        } else if playingBoard[checkIndex] == 2{
-            print("\(myGame.getPlayerName(id: 2)) WON!")
+        } else if playingBoard[playingBoardIndexToCheck] == 2{
             showAlert(id: 2)
         }
     }
@@ -167,7 +173,6 @@ class GameViewController: UIViewController {
         let alert = UIAlertController(title: "\(myGame.getPlayerName(id: id)) WON!",
                                       message: "Current score:",
                                       preferredStyle: .alert)
-        
         // Add a button
         let okAction = UIAlertAction(title: "Play Again",
                                      style: .default, handler: (nil))
