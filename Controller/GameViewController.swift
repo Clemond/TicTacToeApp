@@ -160,10 +160,10 @@ class GameViewController: UIViewController {
     
     func getWinner(playingBoardIndexToCheck: Int){
         if playingBoard[playingBoardIndexToCheck] == 1 {
-            //myGame.updatePlayerScore(id: 1)
+            myGame.updatePlayerScore(id: 1)
             winnerAlert(id: 1)
         } else if playingBoard[playingBoardIndexToCheck] == 2{
-            //myGame.updatePlayerScore(id: 2)
+            myGame.updatePlayerScore(id: 2)
             winnerAlert(id: 2)
         }
     }
@@ -174,11 +174,12 @@ class GameViewController: UIViewController {
                                       message: "\(myGame.getPlayerName(id: 1)) score: \(myGame.getPlayerScore(id: 1)). \(myGame.getPlayerName(id: 2)) score: \(myGame.getPlayerScore(id: 2))",
                                       preferredStyle: .alert)
         // Add a button
-        let playAgainActionButton = UIAlertAction(title: "New game",
+        let playAgainActionButton = UIAlertAction(title: "New round",
                                                   style: .default) { _ in self.playAgainReset()}
         let quitGameActionButton = UIAlertAction(title: "Quit game", style: .default){ _ in self.quitGame()}
-        alert.addAction(playAgainActionButton)
+        
         alert.addAction(quitGameActionButton)
+        alert.addAction(playAgainActionButton)
         // present the alert on screen
         self.present(alert, animated: true, completion: nil)
     }
@@ -188,12 +189,12 @@ class GameViewController: UIViewController {
                                       message: "No points given this round",
                                       preferredStyle: .alert)
         // Add a button
-        let playAgainActionButton = UIAlertAction(title: "New game",
+        let playAgainActionButton = UIAlertAction(title: "New round",
                                                   style: .default) { _ in self.playAgainReset()}
         let quitGameActionButton = UIAlertAction(title: "Quit game", style: .default){ _ in self.quitGame()}
 
-        alert.addAction(playAgainActionButton)
         alert.addAction(quitGameActionButton)
+        alert.addAction(playAgainActionButton)
         // present the alert on screen
         self.present(alert, animated: true, completion: nil)
     }

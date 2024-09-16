@@ -45,12 +45,15 @@ class Game {
     // Update users score
     func updatePlayerScore(id: Int) {
     
-        // Create a copy of the user whose score we want to update
-        var currentPlayerWithIndex = currentPlayers[id]
-        currentPlayerWithIndex.score += 1
-        // Make the copys value the real users score in the list.
-
-        currentPlayers[id] = currentPlayerWithIndex
+        var userID = id
+        userID -= 1
+        
+            // Create a copy of the user whose score we want to update
+            var currentPlayerWithIndex = currentPlayers[userID]
+            currentPlayerWithIndex.score += 1
+            
+            // Make the copy's value the real user's score in the list
+            currentPlayers[userID] = currentPlayerWithIndex
     }
     
     // Remove all players from list
@@ -59,7 +62,7 @@ class Game {
     }
     // Get player score
     func getPlayerScore(id: Int) -> Int{
-        guard let maybeFoundScore = findPlayerById(id: id)?.score else { return 1000 }
+        guard let maybeFoundScore = findPlayerById(id: id)?.score else { return 404 }
         return maybeFoundScore
     }
     // Get player name
