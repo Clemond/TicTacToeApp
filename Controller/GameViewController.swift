@@ -155,23 +155,35 @@ class GameViewController: UIViewController {
             }
         
         if !playingBoard.contains(0){
-            print("All boxes are checked, TIE!")
+            tieAlert()
         }
         
     }
     
     func getWinner(playingBoardIndexToCheck: Int){
         if playingBoard[playingBoardIndexToCheck] == 1 {
-            showAlert(id: 1)
+            winnerAlert(id: 1)
         } else if playingBoard[playingBoardIndexToCheck] == 2{
-            showAlert(id: 2)
+            winnerAlert(id: 2)
         }
     }
     
     
-    func showAlert(id: Int){
+    func winnerAlert(id: Int){
         let alert = UIAlertController(title: "\(myGame.getPlayerName(id: id)) WON!",
-                                      message: "Current score:",
+                                      message: "\(myGame.getPlayerName(id: 1)) score: \(myGame.getPlayerScore(id: 1)). \(myGame.getPlayerName(id: 2)) score: \(myGame.getPlayerScore(id: 2))",
+                                      preferredStyle: .alert)
+        // Add a button
+        let okAction = UIAlertAction(title: "Play Again",
+                                     style: .default, handler: (nil))
+        alert.addAction(okAction)
+        // present the alert on screen
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func tieAlert(){
+        let alert = UIAlertController(title: "It's a tie",
+                                      message: "No points given this round",
                                       preferredStyle: .alert)
         // Add a button
         let okAction = UIAlertAction(title: "Play Again",

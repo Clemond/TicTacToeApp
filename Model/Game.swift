@@ -59,7 +59,8 @@ class Game {
     }
     // Get player score
     func getPlayerScore(id: Int) -> Int{
-        return currentPlayers[id].score
+        guard let maybeFoundScore = findPlayerById(id: id)?.score else { return 1000 }
+        return maybeFoundScore
     }
     // Get player name
     func getPlayerName(id: Int) -> String{
