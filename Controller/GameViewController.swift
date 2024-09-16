@@ -9,10 +9,14 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    
+    // All stack views
+    @IBOutlet weak var firstVerticalStack: UIStackView!
+    @IBOutlet weak var secondVerticalStack: UIStackView!
+    @IBOutlet weak var thirdVerticalStack: UIStackView!
+    // Label outlets
     @IBOutlet weak var lblPlayerOne: UILabel!
     @IBOutlet weak var lblPlayerTwo: UILabel!
-    
+        
     var playersTurn: Bool = true
     let myGame = Game()
     
@@ -53,10 +57,7 @@ class GameViewController: UIViewController {
                     if let currentPlayerSymbol = myGame.findPlayerById(id: 1)?.symbol  {
                         
                         addLabelOnView(on: view, withText: currentPlayerSymbol)
-                        
                         updatePlayingBoard(boxIndex: view.tag)
-                        print("Updated board: \(playingBoard)")
-                        
                         view.isUserInteractionEnabled = false
                         
                     }
@@ -64,10 +65,7 @@ class GameViewController: UIViewController {
                     if let currentPlayerSymbol = myGame.findPlayerById(id: 2)?.symbol  {
                         
                         addLabelOnView(on: view, withText: currentPlayerSymbol)
-                        
                         updatePlayingBoard(boxIndex: view.tag)
-                        print("Updated board: \(playingBoard)")
-                        
                         view.isUserInteractionEnabled = false
                         
                     }
@@ -120,39 +118,39 @@ class GameViewController: UIViewController {
     }
     
     func checkWinner(){
-    
-            if checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 0)
-                return
-            }
-            else if checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 3)
-                return
-            }
-            else if checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 6)
-                return
-            }
-            else if checkleftDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkleftDiagonal.allSatisfy({ playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 0)
-                return
-            }
-            else if checkRightDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkRightDiagonal.allSatisfy({ playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 2)
-                return
-            }
-            else if checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 0)
-                return
-            }
-            else if checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 1)
-                return
-            }
-            else if checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 2}){
-                getWinner(playingBoardIndexToCheck: 2)
-                return
-            }
+        
+        if checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkFirstHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 0)
+            return
+        }
+        else if checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkSecondHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 3)
+            return
+        }
+        else if checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 1}) || checkThirdHorizontalRow.allSatisfy({ playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 6)
+            return
+        }
+        else if checkleftDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkleftDiagonal.allSatisfy({ playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 0)
+            return
+        }
+        else if checkRightDiagonal.allSatisfy({ playingBoard[$0] == 1}) || checkRightDiagonal.allSatisfy({ playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 2)
+            return
+        }
+        else if checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkFirstVerticalRow.allSatisfy({playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 0)
+            return
+        }
+        else if checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkSecondVerticalRow.allSatisfy({playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 1)
+            return
+        }
+        else if checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 1}) || checkThirdVerticalRow.allSatisfy({playingBoard[$0] == 2}){
+            getWinner(playingBoardIndexToCheck: 2)
+            return
+        }
         
         if !playingBoard.contains(0){
             tieAlert()
@@ -162,8 +160,10 @@ class GameViewController: UIViewController {
     
     func getWinner(playingBoardIndexToCheck: Int){
         if playingBoard[playingBoardIndexToCheck] == 1 {
+            //myGame.updatePlayerScore(id: 1)
             winnerAlert(id: 1)
         } else if playingBoard[playingBoardIndexToCheck] == 2{
+            //myGame.updatePlayerScore(id: 2)
             winnerAlert(id: 2)
         }
     }
@@ -174,9 +174,11 @@ class GameViewController: UIViewController {
                                       message: "\(myGame.getPlayerName(id: 1)) score: \(myGame.getPlayerScore(id: 1)). \(myGame.getPlayerName(id: 2)) score: \(myGame.getPlayerScore(id: 2))",
                                       preferredStyle: .alert)
         // Add a button
-        let okAction = UIAlertAction(title: "Play Again",
-                                     style: .default, handler: (nil))
-        alert.addAction(okAction)
+        let playAgainActionButton = UIAlertAction(title: "New game",
+                                                  style: .default) { _ in self.playAgainReset()}
+        let quitGameActionButton = UIAlertAction(title: "Quit game", style: .default){ _ in self.quitGame()}
+        alert.addAction(playAgainActionButton)
+        alert.addAction(quitGameActionButton)
         // present the alert on screen
         self.present(alert, animated: true, completion: nil)
     }
@@ -186,11 +188,38 @@ class GameViewController: UIViewController {
                                       message: "No points given this round",
                                       preferredStyle: .alert)
         // Add a button
-        let okAction = UIAlertAction(title: "Play Again",
-                                     style: .default, handler: (nil))
-        alert.addAction(okAction)
+        let playAgainActionButton = UIAlertAction(title: "New game",
+                                                  style: .default) { _ in self.playAgainReset()}
+        let quitGameActionButton = UIAlertAction(title: "Quit game", style: .default){ _ in self.quitGame()}
+
+        alert.addAction(playAgainActionButton)
+        alert.addAction(quitGameActionButton)
         // present the alert on screen
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func playAgainReset(){
+        // Remove all labels from the game board views and enable user interaction
+        let allViews = [firstVerticalStack, secondVerticalStack, thirdVerticalStack]
+        
+        for stackView in allViews {
+            for view in stackView?.arrangedSubviews ?? [] {
+                view.isUserInteractionEnabled = true
+                for subview in view.subviews {
+                    subview.removeFromSuperview()
+                }
+            }
+        }
+            
+        // Reset the playing board and game state
+        playingBoard = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        playersTurn = true
+        highlightCurrentPlayerLabel()
+    }
+    
+    func quitGame(){
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

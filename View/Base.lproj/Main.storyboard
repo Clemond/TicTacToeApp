@@ -204,8 +204,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="ue3-JY-dDm"/>
                     <connections>
+                        <outlet property="firstVerticalStack" destination="66e-9b-XNc" id="rZl-X7-3sd"/>
                         <outlet property="lblPlayerOne" destination="vfE-yG-9IE" id="kMk-HE-CjE"/>
                         <outlet property="lblPlayerTwo" destination="zFl-tp-cmd" id="IFH-lI-0cF"/>
+                        <outlet property="secondVerticalStack" destination="8jj-wh-LkM" id="sDO-fM-4bU"/>
+                        <outlet property="thirdVerticalStack" destination="FFl-iT-5VF" id="W2n-tu-VPF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -257,19 +260,73 @@
             </objects>
             <point key="canvasLocation" x="45" y="-173"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bGs-0M-rzo">
+            <objects>
+                <viewController id="gd7-ps-kxR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W8Y-oh-Waq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The winner is :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R14-QM-NNe">
+                                <rect key="frame" x="120" y="157" width="153" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="The winner of the round" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bD0-kh-aGd">
+                                <rect key="frame" x="79.000000000000014" y="195" width="235.33333333333337" height="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Current score: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyo-6L-H7g">
+                                <rect key="frame" x="126.66666666666669" y="310" width="140" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Player one" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1g-aa-86K">
+                                <rect key="frame" x="156.66666666666666" y="352" width="80" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Player two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFt-3C-qKR">
+                                <rect key="frame" x="157" y="416" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="8cA-93-quc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="s1g-aa-86K" firstAttribute="centerX" secondItem="W8Y-oh-Waq" secondAttribute="centerX" id="5g1-Ka-e4H"/>
+                            <constraint firstItem="wyo-6L-H7g" firstAttribute="centerX" secondItem="W8Y-oh-Waq" secondAttribute="centerX" id="7co-ic-ih0"/>
+                            <constraint firstItem="R14-QM-NNe" firstAttribute="centerX" secondItem="W8Y-oh-Waq" secondAttribute="centerX" id="XEB-5d-vHb"/>
+                            <constraint firstItem="LFt-3C-qKR" firstAttribute="centerX" secondItem="W8Y-oh-Waq" secondAttribute="centerX" id="gg6-2f-i0Z"/>
+                            <constraint firstItem="bD0-kh-aGd" firstAttribute="centerX" secondItem="W8Y-oh-Waq" secondAttribute="centerX" id="pGU-5M-lex"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Msy-oC-72W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="630"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemCyanColor">
-            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.1960784314" green="0.67843137249999996" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
