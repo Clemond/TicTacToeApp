@@ -70,9 +70,9 @@ class GameViewController: UIViewController {
                         
                     }
                 }
+                checkWinner()
                 playersTurn.toggle()
                 highlightCurrentPlayerLabel()
-                checkWinner()
             }
         }
         
@@ -85,7 +85,7 @@ class GameViewController: UIViewController {
         }
         else {
             lblPlayerOne.textColor = UIColor.black
-            lblPlayerTwo.textColor = UIColor.blue
+            //lblPlayerTwo.textColor = UIColor.blue
         }
         
     }
